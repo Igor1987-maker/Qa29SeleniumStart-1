@@ -20,7 +20,9 @@ public class StartSelenium {
     public void preCondition(){
         //open browser
         wd = new ChromeDriver();
+
     }
+
 
     @Test
     public void startContact(){
@@ -28,7 +30,7 @@ public class StartSelenium {
         //without history
         //wd.get("https://contacts-app.tobbymarshall815.vercel.app/home");
         // with history
-        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
+        wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/login");
 
         WebElement element1 = wd.findElement(By.tagName("div"));
         List<WebElement> list = wd.findElements(By.tagName("div"));
@@ -39,9 +41,13 @@ public class StartSelenium {
 
 
         WebElement element2 = wd.findElement(By.id("root"));
+        wd.findElement(By.cssSelector("#root"));
 
-       //WebElement element3 = wd.findElement(By.className("login_login__3EHKB"));
-      WebElement element3 = wd.findElement(By.className("navbar-component_nav__1X_4m"));
+      WebElement element3 = wd.findElement(By.className("login_login__3EHKB"));
+      WebElement element = wd.findElement(By.cssSelector(".login_login__3EHKB"));
+      wd.findElement(By.cssSelector(".container"));
+
+
 
 
     }
@@ -62,6 +68,7 @@ WebElement loginA = wd.findElement(By.linkText("LOGIN"));
   List <WebElement> listInputs =wd.findElements(By.tagName("input"));
 
   WebElement email =listInputs.get(0);
+  wd.findElement(By.cssSelector("[placeholder='Email']"));
   email.click();
   email.clear();
   email.sendKeys("lolo@gmail.com");
@@ -69,12 +76,15 @@ WebElement loginA = wd.findElement(By.linkText("LOGIN"));
         //step 4 type password
 
      WebElement password = listInputs.get(1)   ;
+     wd.findElement(By.cssSelector("[placeholder='Password']"));
      password.click();
      password.clear();
      password.sendKeys("Ll123456$");
 
         //step 5 click button login
-
+WebElement loginBtn = wd.findElement(By.tagName("button"));
+wd.findElement(By.cssSelector("button"));
+loginBtn.click();
     }
 
     @AfterMethod
@@ -82,7 +92,7 @@ WebElement loginA = wd.findElement(By.linkText("LOGIN"));
         //close browser+www
         //wd.close();
 
-        wd.quit();
+       // wd.quit();
     }
 
 
