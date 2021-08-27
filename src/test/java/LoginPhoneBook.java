@@ -13,6 +13,9 @@ public class LoginPhoneBook {
     @BeforeMethod
     public void init(){
         wd =new ChromeDriver();
+
+
+
         wd.navigate().to("https://contacts-app.tobbymarshall815.vercel.app/home");
         wd.manage().window().maximize();
     }
